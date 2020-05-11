@@ -55,6 +55,9 @@ class App extends React.Component {
                 <nav>
                     <ul>
                     <li>
+                        <Link to="/childOne">childOne页面</Link>
+                    </li>
+                    <li>
                         <Link to="/about">页面一</Link>
                     </li>
                     <li>
@@ -75,7 +78,7 @@ class App extends React.Component {
                     </ul>
                 </nav>
                 <div>redux & redux-saga测试</div>
-                <div>current number： {number} 
+                <div style={{color: 'purple', fontSize: '30px',fontWeight: 'bold'}}>current number： {number} 
                     <button onClick={addItem}>点击+1</button><em> </em>
                     <button onClick={sagaClick}>触发saga</button> <em></em>
                     <button onClick={() => thunkClick(2)}>触发redux-thunk</button> <em></em>
@@ -115,7 +118,13 @@ class App extends React.Component {
         );
     }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state, x, y,z) => {
+    console.log(x, '====x');
+    console.log(y, '====y');
+    console.log(z, '====z');
+    console.log(Array.apply(null, {length: 30}).map(function() {
+        return '❄️'
+    }).join('🥁'));
     console.log(state, '=====state');
     const { incrementReducer: { count, number }, myReducer: { list, isDisplay }} = state;
     return {
@@ -125,7 +134,11 @@ const mapStateToProps = state => {
         isDisplay
     }
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch,b,c,d) => {
+    console.log(b, '=====b');
+    console.log(c, '=====c');
+    console.log(d, '=====d');
+    console.log(Array(40).fill('🔥').join('>'));
      
     var listActions = bindActionCreators(combineCreators, dispatch);
     console.log(listActions, '=======iiiiii')
@@ -147,5 +160,7 @@ const mapDispatchToProps = dispatch => {
 }
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
+    null,
+    { o: 'red'}
 )(App);

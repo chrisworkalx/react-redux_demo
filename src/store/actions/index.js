@@ -1,4 +1,5 @@
-// import { bindActionCreators} from 'redux';
+import childOneStore from '../childOne';
+
 export const increment = payload => {
     return {
       type: 'INCREMENT',
@@ -35,4 +36,17 @@ export const changeShow = () => {
             dispatch(increment(n+payload))
         }
       }
+  }
+
+  const prevActions = {
+    increment,
+    increment_aysnc,
+    addList,
+    changeShow,
+    thunkAction
+  }
+
+  export default {
+      childOneActions: childOneStore['child_one_actions'],
+      prevActions
   }

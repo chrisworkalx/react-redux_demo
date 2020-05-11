@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import childOneStore from '../childOne';
 const initialState = {
     number: 0,
     count: 0
@@ -55,6 +56,7 @@ const initialState = {
   }
   const defaultReducer = combineReducers({
     incrementReducer,
-    myReducer
+    myReducer,
+    child_one_reducer: childOneStore['childOneReducer']
   })
   export default defaultReducer;

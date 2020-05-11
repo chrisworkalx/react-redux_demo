@@ -65,7 +65,7 @@ function f4() {
         next: x => console.log("接收到：", x),
     });
  
-    setTimeout(() => suber.unsubscribe(), 2000); // 在一秒后取消订阅
+    setTimeout(() => suber.unsubscribe(), 1000); // 在一秒后取消订阅
 }
 
 //自定义订阅函数
@@ -76,10 +76,7 @@ function f5() {
         }, 1000);
  
         return {
-            unsubscribe: () => {
-                clearInterval(intervalID);
-                console.log('结束了')
-            }
+            unsubscribe: () => clearInterval(intervalID)
         }
     }
  
@@ -113,12 +110,8 @@ function f7() {
 function f8() {
     const observable = of(1, 2, 3);
     const newObservable = observable.pipe(
-        // map(v => '你是谁？'), //map会首先过滤of中的输出值，比如该map函数会将所有的of输出值改变成'你是谁'
-        map(v => {
-            // console.log(v, '====v');
-            return v % 2 == 0;
-        }),
-        tap(a => console.log(a, '===a??')) //这个函数最初是为了打印of中要输出的字段
+        tap(a => console.log(a, '===a??')),
+        map(v => '你是谁？')
     )
     newObservable.subscribe({
         next: data => console.log(data),

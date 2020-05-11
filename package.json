@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development webpack-dev-server --config webpack.config.js --open",
+    "dev": "NODE_ENV=development DEBUG=ok webpack-dev-server --config webpack.config.js --open",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "devT": "cross-env NODE_ENV=development webpack-dev-server --progress --colors --devtool cheap-module-eval-source-map --hot --inline --config webpack.config.js --open"
   },
@@ -25,6 +25,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-react-app": "^9.0.0",
     "core-decorators": "^0.20.0",
@@ -36,9 +37,11 @@
     "img-loader": "^3.0.1",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
+    "react-loadable": "^5.5.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.4",
+    "redux-persist": "^6.0.0",
     "redux-saga": "^1.0.5",
     "rxjs": "^6.5.3",
     "style-loader": "^1.0.0",

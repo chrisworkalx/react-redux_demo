@@ -10,9 +10,15 @@ function init({initialCount, name}) {
   function reducer(state, action) {	
     switch (action.type) {	
       case 'increment':	
-        return {count: state.count + 1};	
+        return {
+            ...state,
+            count: state.count + 1
+        };	
       case 'decrement':	
-        return {count: state.count - 1};	
+        return {
+            ...state,
+            count: state.count - 1
+        };	
       case 'reset':	
         return init(action.payload);	
       default:	
@@ -29,6 +35,7 @@ function init({initialCount, name}) {
         name
       }
     const [state, dispatch] = useReducer(reducer, obj2, init);	 //init对props传值进行初始化处理
+    console.log(state, '=====useReducer2_state');
     return (	
       <>	
     <h2>====================================usereducer传值</h2>
@@ -36,7 +43,7 @@ function init({initialCount, name}) {
       <br/>
         Count: {state.count}	
         <button	
-          onClick={() => dispatch({type: 'reset', payload: initialCount})}>	
+          onClick={() => dispatch({type: 'reset', payload: {initialCount, name}})}>	
       
           Reset	
         </button>	

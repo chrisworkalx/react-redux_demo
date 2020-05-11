@@ -6,6 +6,7 @@ function LineOriginWrap ({initialState}) {
     const [count, setCount] = useState(2)
     const [state, dispatch] = useReducer(incrementReducer, initialState);	
     const clickAction = useCallback(() => {
+        //可以缓存不必要的性能消耗
         console.log(count)
     },[count]);
     set.add(clickAction)

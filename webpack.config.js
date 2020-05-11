@@ -8,10 +8,12 @@ function resolve(dir) {
     return path.resolve(__dirname, dir)
 }
 module.exports = {
-    entry: './app.js', // 入口文件
+    entry: {
+        main:  './app.js'
+    }, // 入口文件
     output: {
         path: path.resolve(__dirname, 'dist'), // 定义输出目录
-        filename: 'my-first-webpack.bundle.js'  // 定义输出文件名称
+        filename: '[name][hash:8].chunk.js'  // 定义输出文件名称
     },
     mode: 'development',
     // mode: 'production',
@@ -54,7 +56,7 @@ module.exports = {
         hot: true, // 热替换
         contentBase: path.join(__dirname, 'dist'), // server文件的根目录
         compress: true, // 开启gzip
-        port: 8399, // 端口
+        port: 8077, // 端口
         // proxy:[{
         //     context:['/topic'],         // 要代理的接口
         //     target:"http://localhost:8080",
@@ -87,6 +89,9 @@ module.exports = {
             'typeof window': JSON.stringify('object'),
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+            },
+            BBB: {
+                aa: JSON.stringify(process.env.DEBUG) //可以动态从packge.json上获取参数
             }
         })
     ]

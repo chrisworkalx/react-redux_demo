@@ -24,7 +24,7 @@ class ParentUseInperativeHandle extends Component {
         console.log(getParentDom.children);
         console.log(getParentDom.innerHTML);
         console.log(getParentDom.outerHTML);
-        getParentDom.style.color = "#f99";
+        getParentDom.style.color = "#f40";
     }
     imperativeHandleClick = () => {
         this.inputRef.current.focus();

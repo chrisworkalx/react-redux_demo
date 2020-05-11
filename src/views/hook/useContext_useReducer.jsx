@@ -46,6 +46,7 @@ const A = () => {
 function reducer(state, action) {
   switch (action.type) {
     case "click_async":
+    return { ...state, value: action.payload };
     case "click_sync":
       return { ...state, value: action.payload };
     case "loading_start":
@@ -88,6 +89,7 @@ function wrapperDispatch(dispatch) {
     if (isPromise(action.payload)) {
       dispatch({ type: "loading_start" });
       action.payload.then(v => {
+        //   debugger;
         dispatch({ type: action.type, payload: v });
         dispatch({ type: "loading_end" });
       });

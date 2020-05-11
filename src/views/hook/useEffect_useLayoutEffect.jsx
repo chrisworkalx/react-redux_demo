@@ -59,7 +59,7 @@ class WarpperApp extends React.Component {
         console.log("app update")
     }
     render() {
-        return <div>{this.state.aaa < 10 ? <Example /> : null}
+        return <div>{this.state.aaa < 5 ? <Example /> : null}
             <h1 onClick={this.onClick.bind(this)}>{this.state.aaa}</h1>
         </div>
     }
