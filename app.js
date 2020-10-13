@@ -35,7 +35,7 @@ const randomGetNum = (a = 4) => (b = 10) => {
 const About = () => {
     const [count, setCount] = useState(n);
     useEffect(() => {//初始函数
-        console.log('开始了，挂载完毕！');
+        console.log('开始了，挂载完毕！'); //类似componentDidMount钩子函数调用一次
         return () => {//清理函数
             console.log('我是HOOKs父组件。。。销毁组件中')
         }
