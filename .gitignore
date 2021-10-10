@@ -1,7 +1,7 @@
 .DS_Store
 # yarn.lock
 # .stylelintcache
-# *.lock
+*.lock
 /dist/
 node_modules/
 # mock/coverage/
@@ -9,3 +9,5 @@ node_modules/
 # mock/logs/
 # mock/logs/
 # mock/*.lock
+package-lock.json
+
